@@ -69,7 +69,7 @@ CREATE TABLE `user` (
 
 
 
-INSERT INTO `user` VALUES (1,'陈浩','123456','chenhao@node.com'),(2,'田伟','123456','tianwei@node.com'),(3,'陈晨','123456','chenchen@node.com'),(4,'陈浩然','123456','chenhaoran@node.com');
+INSERT INTO `user` VALUES (1,'陈浩','123456','jin yu@node.com'),(2,'田伟','123456','tianwei@node.com'),(3,'陈晨','123456','chenchen@node.com'),(4,'陈浩然','123456','jin yuran@node.com');
 
 
 DROP TABLE IF EXISTS `usergroup`;

@@ -1,7 +1,7 @@
 /* 
 * @Author: 
 * @Date:   2015-06-09 13:07:55
-* @Last Modified by:   chenhao
+* @Last Modified by:   jin yu
 * @Last Modified time: 2015-07-06 11:17:08
 */
 var menuDao = require('../dao/menuDao.js');

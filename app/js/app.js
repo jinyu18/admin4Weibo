@@ -1,7 +1,7 @@
 /* 
  * @Author: 
  * @Date:   2015-06-25 10:37:20
- * @Last Modified by:   chenhao
+ * @Last Modified by:   jin yu
  * @Last Modified time: 2015-07-06 13:13:16
  */
 'use strict';
@@ -26,6 +26,9 @@ angular.module('app', ['ngRoute', 'ngGrid', 'ui.bootstrap'])
         }).when('/log', {
             templateUrl: '/templates/log/log.html',
             controller: 'LogCtrl'
+        }).when('/weibo', {
+            templateUrl: '/templates/weibo/weibo.html',
+            controller: 'weiboCtrl'
         }).otherwise({
             redirectTo: '/'
         });
