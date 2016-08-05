@@ -9,8 +9,8 @@ angular.module('app', ['ngRoute', 'ngGrid', 'ui.bootstrap'])
 .config(['$routeProvider', '$locationProvider', '$sceProvider',
     function($routeProvider, $locationProvider, $sceProvider) {
         $routeProvider.when('/', {
-            templateUrl: '/templates/welcome.html',
-            controller: 'WelComeCtrl'
+            templateUrl: '/templates/weibo/weibo.html',
+            controller: 'WeiboCtrl'
         }).when('/about', {
             templateUrl: '/templates/about.html',
             controller: 'AboutCtrl'
@@ -26,9 +26,6 @@ angular.module('app', ['ngRoute', 'ngGrid', 'ui.bootstrap'])
         }).when('/log', {
             templateUrl: '/templates/log/log.html',
             controller: 'LogCtrl'
-        }).when('/weibo', {
-            templateUrl: '/templates/weibo/weibo.html',
-            controller: 'weiboCtrl'
         }).otherwise({
             redirectTo: '/'
         });

@@ -14,7 +14,10 @@ router.get('/', function(req, res, next) {
     res.render("login");
     return;
   }
+  // 赋值给模版
   res.locals.user = req.session.user;
+  var code = req.query['code'];
+  res.locals.code = code;
   res.render('index');
 });
 

@@ -4,20 +4,24 @@
 
 'use strict';
 
-function weiboCtrl($scope, $http){
+function WeiboCtrl($scope, $http){
 
-    $scope.user = {};
+
     
     $scope.loginWeibo = function () {
-        console.log($scope.user);
 
         $http({
             method: 'POST',
-            url: '/action/weibo/login',
-            data: $scope.user
+            url: '/action/weibo/login'
         }).success(function(results){
             console.log(results);
         });
     };
+
+    $scope.code = window.code;
+
+    $scope.$watch("code",function(newValue,oldValue, scope) {
+        console.log(newValue);
+    }, true);
     
 }

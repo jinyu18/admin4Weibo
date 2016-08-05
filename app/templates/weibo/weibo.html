@@ -7,33 +7,35 @@
 <section class="content-header">
     <ol class="breadcrumb">
         <li><a href="#/"><i class="fa fa-home"></i> 首页</a></li>
-        <li class="active"><i class="fa fa-info"></i> 菜单</li>
+        <!--<li class="active"><i class="fa fa-info"></i> 菜单</li>-->
     </ol>
 </section>
 
-<div class="panel panel-default">
-    <div class="panel-body">
-        <form class="form-login">
-            <h2 class="form-login-heading"> <strong>Weibo</strong> </h2>
-            <br>
-            <div class="form-group has-feedback">
-                <label for="email" class="sr-only"> 邮箱 </label>
-                <input type="email" name="email" class="form-control" placeholder="Email" required autofocus ng-model="user.email"/>
-                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-            </div>
-            <div class="form-group has-feedback">
-                <label for="password" class="sr-only"> 密码 </label>
-                <input type="password" name="password" class="form-control" placeholder="Password" required ng-model="user.password">
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-            </div>
-            <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="loginWeibo()">登录</button>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" value="remember-me"> 记住账号
-                </label>
-            </div>
-        </form>
-    </div>
-</div>
+<button type="submit" class="btn btn-lg btn-primary btn-block" style="width: 150px;" ng-click="loginWeibo()"><i class="fa fa-weibo"></i>登录微博</button>
+<input ng-model="code" value="<%=code%>"/>
+<!--<div class="panel panel-default">-->
+    <!--<div class="panel-body">-->
+        <!--<form class="form-login">-->
+            <!--<h2 class="form-login-heading"> <strong>Weibo</strong> </h2>-->
+            <!--<br>-->
+            <!--<div class="form-group has-feedback">-->
+                <!--<label for="email" class="sr-only"> 邮箱 </label>-->
+                <!--<input type="email" name="email" class="form-control" placeholder="Email" required autofocus ng-model="user.email"/>-->
+                <!--<span class="glyphicon glyphicon-envelope form-control-feedback"></span>-->
+            <!--</div>-->
+            <!--<div class="form-group has-feedback">-->
+                <!--<label for="password" class="sr-only"> 密码 </label>-->
+                <!--<input type="password" name="password" class="form-control" placeholder="Password" required ng-model="user.password">-->
+                <!--<span class="glyphicon glyphicon-lock form-control-feedback"></span>-->
+            <!--</div>-->
+            <!--<button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="loginWeibo()">登录</button>-->
+            <!--<div class="checkbox">-->
+                <!--<label>-->
+                    <!--<input type="checkbox" value="remember-me"> 记住账号-->
+                <!--</label>-->
+            <!--</div>-->
+        <!--</form>-->
+    <!--</div>-->
+<!--</div>-->
 </body>
 </html>

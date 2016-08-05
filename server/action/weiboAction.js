@@ -6,21 +6,27 @@
  */
 
 var express = require('express');
-var userService = require('../service/userService.js');
 var router = express.Router();
+
+
+var Weibo = require('nodeweibo');
+
+
 
 //微博登录操作
 router.post("/weibo/login", function(req, res){
-    var data = req.body;
-    console.log(data);
-    // userService.query(data, function(err, results){
-    //     if(err || results.length == 0){
-    //         res.redirect("/login.html");
-    //         return;
-    //     }
-    //     req.session.user = results[0];
-    //     res.redirect("/");
-    // });
+
+    /*
+     initialize weibo before using it
+     */
+    Weibo.init({
+        "appKey":"4263807830",
+        "appSecret":"f314a703b2586510ae62a8baaef1570e",
+        "redirectUrl":"127.0.0.1:3000"
+    });
+
+    Weibo.authorize();
+    
 });
 
 
