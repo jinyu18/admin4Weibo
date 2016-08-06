@@ -44,16 +44,22 @@ router.post("/weibo/queryLog", function(req, res){
 });
 
 router.post("/weibo/auth", function (req, res) {
-    var data = req.body;
-    var jsonParas = {
-        code: data.code,
-        grant_type:"authorization_code"
-    };
+
 
     if (req.session.access_token != null) {
         res.json({msg: '成功'});
         return;
     }else {
+        var data = req.body;
+        if (data.code == null) {
+            res.json({msg: '失败',data: {error_description:"请先登陆微博"}});
+            return;
+        }
+        var jsonParas = {
+            code: data.code,
+            grant_type:"authorization_code"
+        };
+
         Weibo.OAuth2.access_token(jsonParas,function(data){
 
             console.log(data);
@@ -78,7 +84,7 @@ router.post("/weibo/get_timeline", function (req, res) {
         res.json({msg: '失败'});
         return;
     }
-    
+
     // insert weibo log
     var log = {
         weibologId : new Date().getTime(),

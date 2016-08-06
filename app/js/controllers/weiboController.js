@@ -21,6 +21,8 @@ function WeiboCtrl($scope, $http){
     $scope.code = window.code;
     $scope.list = [];
 
+
+
     $scope.$watch("code",function(newValue,oldValue, scope) {
         console.log(newValue);
 
@@ -28,6 +30,11 @@ function WeiboCtrl($scope, $http){
             return;
         }
 
+        $scope.renderWeiboHome(newValue);
+
+    }, true);
+
+    $scope.renderWeiboHome = function(newValue) {
         $http({
             method: 'POST',
             url: '/action/weibo/auth',
@@ -38,23 +45,24 @@ function WeiboCtrl($scope, $http){
 
                 $http({
                     method: 'POST',
-                    url: '/action/weibo/get_timeline',
-                    data: {code: newValue}
+                    url: '/action/weibo/get_timeline'
                 }).success(function(results){
                     console.log(results);
                     if (results.msg!= null && results.msg.indexOf('成功') != -1) {
 
                         $scope.list = results.data.statuses;
                     }else {
-                        alert("发生了错误");
+                        var error = results.data.error_description == null ? "" : "  : "+results.data.error_description;
+                        alert("Notice" + error);
                     }
                 });
 
             }else {
-                alert("发生了错误");
+                var error = results.data.error_description == null ? "" : "  d: "+results.data.error_description;
+                alert("Notice" + error);
             }
         });
+    };
 
-    }, true);
     
 }
