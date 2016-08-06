@@ -26,6 +26,9 @@ angular.module('app', ['ngRoute', 'ngGrid', 'ui.bootstrap'])
         }).when('/log', {
             templateUrl: '/templates/log/log.html',
             controller: 'LogCtrl'
+        }).when('/weiboLog', {
+            templateUrl: '/templates/weibo/weiboLog.html',
+            controller: 'WeiboLogCtrl'
         }).otherwise({
             redirectTo: '/'
         });
