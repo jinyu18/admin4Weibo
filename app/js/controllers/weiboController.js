@@ -34,7 +34,12 @@ function WeiboCtrl($scope, $http){
             data: {code: newValue}
         }).success(function(results){
             console.log(results);
-            $scope.list = results.data.statuses;
+            if (results.msg.indexOf('成功') != -1) {
+
+                $scope.list = results.data.statuses;
+            }else {
+                alert("发生了错误");
+            }
         });
     }, true);
     
