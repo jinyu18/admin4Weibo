@@ -26,7 +26,35 @@ router.post("/weibo/login", function(req, res){
     });
 
     Weibo.authorize();
-    
+    res.redirect("/");
+
+});
+
+router.post("/weibo/get_timeline", function (req, res) {
+    var data = req.body;
+    var jsonParas = {
+    code: data.code,
+    grant_type:"authorization_code"
+    };
+
+    Weibo.OAuth2.access_token(jsonParas,function(data){
+        console.log(data);
+
+        var para = {
+            "source": Weibo.appKey.appKey,
+            "access_token": "2.00wJuIMCPqqOdEb6fbdb7ef6AF_BaC"//data.access_token // TODO 应用审核未通过 取token失败,用自己token暂时代替 http://open.weibo.com/tools/console?uri=statuses/public_timeline&httpmethod=GET&{{{apiToolPara}}}
+        };
+
+        // get public timeline
+        Weibo.Statuses.public_timeline(para, function(data){
+            console.log(data);
+            res.json({msg: '取得成功', data: data});
+        });
+    });
+
+
+
+
 });
 
 

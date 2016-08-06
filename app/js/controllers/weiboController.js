@@ -22,6 +22,18 @@ function WeiboCtrl($scope, $http){
 
     $scope.$watch("code",function(newValue,oldValue, scope) {
         console.log(newValue);
+
+        if (newValue == null || newValue == '') {
+            return;
+        }
+
+        $http({
+            method: 'POST',
+            url: '/action/weibo/get_timeline',
+            data: {code: newValue}
+        }).success(function(results){
+            console.log(results);
+        });
     }, true);
     
 }
