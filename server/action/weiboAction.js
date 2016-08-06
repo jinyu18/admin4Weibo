@@ -42,7 +42,7 @@ router.post("/weibo/get_timeline", function (req, res) {
 
         var para = {
             "source": Weibo.appKey.appKey,
-            "access_token": "2.00wJuIMCPqqOdEb6fbdb7ef6AF_BaC"//data.access_token // TODO 应用审核未通过 取token失败,用自己token暂时代替 http://open.weibo.com/tools/console?uri=statuses/public_timeline&httpmethod=GET&{{{apiToolPara}}}
+            "access_token": "2.00wJuIMCPqqOdEb6fbdb7ef6AF_BaC"//data.access_token // TODO 应用审核未通过 取token失败,用自己通过测试工具取得的token测试使用 http://open.weibo.com/tools/console?uri=statuses/public_timeline&httpmethod=GET&{{{apiToolPara}}}
         };
 
         // get public timeline

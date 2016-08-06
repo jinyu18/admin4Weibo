@@ -19,6 +19,7 @@ function WeiboCtrl($scope, $http){
     };
 
     $scope.code = window.code;
+    $scope.list = [];
 
     $scope.$watch("code",function(newValue,oldValue, scope) {
         console.log(newValue);
@@ -33,6 +34,7 @@ function WeiboCtrl($scope, $http){
             data: {code: newValue}
         }).success(function(results){
             console.log(results);
+            $scope.list = results.data.statuses;
         });
     }, true);
     
