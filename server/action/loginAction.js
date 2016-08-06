@@ -25,6 +25,8 @@ router.post("/login", function(req, res){
 //登出操作
 router.post("/logout", function(req, res){
     delete req.session.user;
+    // 删除token
+    delete req.session.access_token;
     res.json({msg: "登出成功"});
 });
 

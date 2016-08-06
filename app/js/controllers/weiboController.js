@@ -30,17 +30,31 @@ function WeiboCtrl($scope, $http){
 
         $http({
             method: 'POST',
-            url: '/action/weibo/get_timeline',
+            url: '/action/weibo/auth',
             data: {code: newValue}
         }).success(function(results){
             console.log(results);
             if (results.msg!= null && results.msg.indexOf('成功') != -1) {
 
-                $scope.list = results.data.statuses;
+                $http({
+                    method: 'POST',
+                    url: '/action/weibo/get_timeline',
+                    data: {code: newValue}
+                }).success(function(results){
+                    console.log(results);
+                    if (results.msg!= null && results.msg.indexOf('成功') != -1) {
+
+                        $scope.list = results.data.statuses;
+                    }else {
+                        alert("发生了错误");
+                    }
+                });
+
             }else {
                 alert("发生了错误");
             }
         });
+
     }, true);
     
 }
