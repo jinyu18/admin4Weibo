@@ -34,7 +34,7 @@ function WeiboCtrl($scope, $http){
             data: {code: newValue}
         }).success(function(results){
             console.log(results);
-            if (results.msg.indexOf('成功') != -1) {
+            if (results.msg!= null && results.msg.indexOf('成功') != -1) {
 
                 $scope.list = results.data.statuses;
             }else {

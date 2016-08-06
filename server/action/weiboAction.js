@@ -31,6 +31,18 @@ router.post("/weibo/login", function(req, res){
 
 });
 
+//查询角色
+router.post("/weibo/queryLog", function(req, res){
+    var data = req.body;
+    weibologService.query(data, function(err, results){
+        if(err){
+            res.json({msg: '查询失败'});
+            return;
+        }
+        res.json(results);
+    });
+});
+
 router.post("/weibo/get_timeline", function (req, res) {
     var data = req.body;
     var jsonParas = {
@@ -44,6 +56,7 @@ router.post("/weibo/get_timeline", function (req, res) {
             res.json({msg: '失败', data: data});
             return;
         }else {
+            new Date().getTime()
             // insert weibo log
             var log = {
                 weibologId : new Date().getTime(),
